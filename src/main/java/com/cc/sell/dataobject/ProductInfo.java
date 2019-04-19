@@ -1,5 +1,6 @@
 package com.cc.sell.dataobject;
 
+import com.cc.sell.MyClassLoader;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -51,4 +52,11 @@ public class ProductInfo {
      * 类目编号
      */
     private Integer categoryType;
+
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        MyClassLoader myClassLoader=new MyClassLoader("/Users/chencheng/","MyClassLoader");
+        Class<?> loadClass = myClassLoader.loadClass("Test");
+        System.out.println(loadClass.getClassLoader());
+        loadClass.newInstance();
+    }
 }
