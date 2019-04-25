@@ -21,12 +21,6 @@ public class MyClassLoader extends ClassLoader {
         this.classLoaderName = classLoaderName;
     }
 
-    /**
-     * 寻找类加载器
-     *
-     * @param name 名字
-     * @return
-     */
     @Override
     protected Class<?> findClass(String name) {
         byte[] b = loadClassData(name);
@@ -34,9 +28,9 @@ public class MyClassLoader extends ClassLoader {
     }
 
     private byte[] loadClassData(String name) {
-        name = path + name + ".class";
-        InputStream in=null;
-        ByteArrayOutputStream out=null;
+        name = name + path + ".class";
+        InputStream in = null;
+        ByteArrayOutputStream out = null;
         try {
             in = new FileInputStream(new File(name));
             out = new ByteArrayOutputStream();
@@ -46,7 +40,7 @@ public class MyClassLoader extends ClassLoader {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 out.close();
                 in.close();
@@ -57,5 +51,15 @@ public class MyClassLoader extends ClassLoader {
         return out.toByteArray();
     }
 
+    public static void main(String[] args) {
+        String s = new String("a");
+        s.intern();
+        String s2 = "a";
+        System.out.println(s == s2);
 
+        String s3 = new String("a") + new String("a");
+        s3.intern();
+        String s4 = "aa";
+        System.out.println(s3 == s4);
+    }
 }
