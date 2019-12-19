@@ -7,7 +7,7 @@ spring:
   jpa:
     slow-sql:true
 server:
-    context-path:/sell
+    context-path: /sell
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
