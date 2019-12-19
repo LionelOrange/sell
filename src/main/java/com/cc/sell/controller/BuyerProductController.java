@@ -7,7 +7,7 @@ import com.cc.sell.dataobject.ProductCategory;
 import com.cc.sell.dataobject.ProductInfo;
 import com.cc.sell.service.CategoryService;
 import com.cc.sell.service.ProductService;
-import com.cc.sell.utils.ResultVOUtils;
+import com.cc.sell.utils.ResultVOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +59,6 @@ public class BuyerProductController {
             productVO.setProductInfoVOList(productInfoVOList);
             productVOList.add(productVO);
         }
-        return ResultVOUtils.success(productVOList);
+        return ResultVOUtil.success(productVOList);
     }
 }

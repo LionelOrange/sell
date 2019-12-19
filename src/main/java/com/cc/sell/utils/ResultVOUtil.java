@@ -6,7 +6,7 @@ import com.cc.sell.VO.ResultVO;
  * @author chencheng
  * @date 2019/12/18
  */
-public class ResultVOUtils {
+public class ResultVOUtil {
 
     public static ResultVO success(Object object){
         ResultVO resultVO = new ResultVO();

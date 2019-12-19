@@ -3,6 +3,9 @@ package com.cc.sell.dto;
 import com.cc.sell.dataobject.OrderDetail;
 import com.cc.sell.enums.OrderStatusEnum;
 import com.cc.sell.enums.PayStatusEnum;
+import com.cc.sell.utils.serializer.Date2LongSerializer;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,6 +17,7 @@ import java.util.List;
  * @date 2019/12/19
  */
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
     /** 订单id. */
@@ -41,9 +45,11 @@ public class OrderDTO {
     private Integer payStatus;
 
     /** 创建时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /** 更新时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
